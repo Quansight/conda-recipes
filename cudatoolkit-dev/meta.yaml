@@ -1,0 +1,18 @@
+{% set name = "cudatoolkit-dev" %}
+{% set version = "9.2.88_396.26" %}
+{% set major_version = '.'.join(version.split('.')[:2]) %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+build:
+  detect_binary_files_with_prefix: true
+  number: 0
+  skip: False
+
+
+test:
+  commands:
+    - "echo $CUDA_HOME"
+    - "echo $CONDA_PREFIX"
