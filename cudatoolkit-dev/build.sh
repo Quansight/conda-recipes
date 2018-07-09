@@ -1,16 +1,14 @@
 #!/bin/bash
 set -x -e
 
-CUDADEV=$PREFIX/bin
+mkdir -p $PREFIX/bin 
+cp $RECIPE_DIR/cuda-install.sh $PREFIX/bin/cuda-install.sh 
+chmod +x $PREFIX/bin/*.sh 
+ln -s $PREFIX/bin/cuda-install.sh $PREFIX/bin/cuda-install 
 
-mkdir -p $CUDADEV
-cp $RECIPE_DIR/cuda-install.sh $CUDADEV/cuda-install.sh
-
-
-chmod +x $CUDADEV/*.sh
-ln -s $CUDADEV/cuda-install.sh $PREFIX/bin/cuda-install
-
-
-
+mkdir -p $CONDA_PREFIX/etc/conda/activate.d 
+mkdir -p $CONDA_PREFIX/etc/conda/deactivate.d 
+cp $RECIPE_DIR/scripts/cuda_activate.sh $CONDA_PREFIX/etc/conda/activate.d/cuda_activate.sh 
+cp $RECIPE_DIR/scripts/cuda_deactivate.sh $CONDA_PREFIX/etc/conda/deactivate.d/cuda_deactivate.sh 
 
 

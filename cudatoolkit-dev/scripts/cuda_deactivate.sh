@@ -1,0 +1,7 @@
+#!/bin/bash 
+
+export PATH=$PATH_BACKUP
+export CUDA_HOME=$CUDA_HOME_BACKUP
+unset PATH_BACKUP
+unset CUDA_HOME_BACKUP 
+
