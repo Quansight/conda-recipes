@@ -1,6 +1,5 @@
 #!/bin/bash 
 
-export PATH_BACKUP=$PATH
-export CUDA_HOME_BACKUP=$CUDA_HOME
-export CUDA_HOME=$CONDA_PREFIX/pkgs/cuda
-export PATH=$CUDA_HOME/bin:$PATH
+cd $CONDA_PREFIX/bin
+find . -type l -exec unlink {} \;
+ln -s $CONDA_PREFIX/pkgs/cudatoolkit-dev/bin/* .

@@ -1,14 +1,15 @@
 #!/bin/bash 
 
-TEMPDIR=/tmp/cuda 
+
+TEMPDIR=$CONDA_PREFIX/tmp/cudatoolkit-dev 
 mkdir -p $TEMPDIR
 
-wget -c --directory-prefix=$TEMPDIR --quiet https://developer.nvidia.com/compute/cuda/9.2/Prod/local_installers/cuda_9.2.88_396.26_linux
-cuda_filepath=$TEMPDIR/"cuda_9.2.88_396.26_linux"
+url="https://developer.nvidia.com/compute/cuda/${PKG_VERSION:0:3}/Prod2/local_installers/cuda_${PKG_VERSION}_linux"
+wget -c --directory-prefix=$TEMPDIR --quiet $url
+cuda_filepath=$TEMPDIR/cuda_${PKG_VERSION}_linux
 chmod ugo+x $cuda_filepath
 
-install_dir=$CONDA_PREFIX/pkgs/cuda
-
+install_dir=$CONDA_PREFIX/pkgs/cudatoolkit-dev
 mkdir -p install_dir
 
 bash $cuda_filepath --silent --toolkit --toolkitpath=$install_dir --override 

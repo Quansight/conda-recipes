@@ -1,5 +1,6 @@
 {% set name = "cudatoolkit-dev" %}
-{% set version = "9.2" %}
+{% set version = "9.2.148_396.37" %}
+{% set major_version = '.'.join(version.split('.')[:2]) %}
 package:
   name: {{ name|lower }}
   version: {{ version }}
