@@ -1,6 +1,8 @@
 {% set name = "cudatoolkit-dev" %}
-{% set version = "9.2.148_396.37" %}
+{% set version = "9.2.148" %} [win, osx]
+{% set version = "9.2.148_396.37" %} [linux]
 {% set major_version = '.'.join(version.split('.')[:2]) %}
+
 package:
   name: {{ name|lower }}
   version: {{ version }}
@@ -14,6 +16,7 @@ about:
   home: "https://developer.nvidia.com"
   license: "other"
   license_family: "other"
+  license_url: https://docs.nvidia.com/cuda/eula/index.html
   summary: "Develop, Optimize and Deploy GPU-accelerated Apps"
   description: |
     The NVIDIA CUDA Toolkit provides a development environment for creating 
